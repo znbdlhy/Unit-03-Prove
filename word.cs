@@ -9,9 +9,9 @@ namespace Jumper_Game
     /// </summary>
     public class Word
     {
-        public List<char> word = new List<char>();
-        public string answer;
-
+        private List<char> word = new List<char>();
+        private string answer;
+        private TerminalService t = new TerminalService();
         /// <summary>
         /// Get a word
         /// </summary>
@@ -35,7 +35,7 @@ namespace Jumper_Game
         {
             foreach(char i in word)
             {
-                Console.Write($"{i}");
+               t.WriteText($"{i}");
             }
         }
 
@@ -58,6 +58,10 @@ namespace Jumper_Game
         /// <summary>
         /// Check if user win the game
         /// </summary>
+        public string getAnswer()
+        {
+            return answer;
+        }
         public bool youWin()
         {
             foreach(char a in word)
